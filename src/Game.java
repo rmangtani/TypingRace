@@ -17,11 +17,21 @@ public class Game {
 
     public void DisplayInstructions() {}
 
-    public void playGame() {}
+    public void playGame() {
+        playRound();
+    }
 
-    public void playRound() {}
+    public void playRound() {
+        Passage p = new Passage();
+        System.out.println(p.getPassage());
+    }
 
     public void displayRoundResults(int time, int numChars, int numWords, int numErrors) {}
 
     public void endGame() {}
+
+    public static void main(String[] args) {
+        Game g = new Game();
+        g.playGame();
+    }
 }
