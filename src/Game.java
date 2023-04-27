@@ -22,8 +22,10 @@ public class Game {
     }
 
     public void playRound() {
-        Passage p = new Passage();
-        System.out.println(p.getPassage());
+        Passage passage = new Passage(window);
+        window.setPassage(passage);
+        window.repaint();
+        //System.out.println(p.getPassageChars());
     }
 
     public void displayRoundResults(int time, int numChars, int numWords, int numErrors) {}
