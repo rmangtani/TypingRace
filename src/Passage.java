@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Passage {
+    // Passages taken from https://thepracticetest.com/typing/tests/practice-paragraphs/
     static final String[] passageFiles = {"Resources/passage1.txt", "Resources/passage2.txt"};
     private File passageFile;
     private ArrayList<Character> passageChars;
@@ -35,6 +36,10 @@ public class Passage {
 
     public ArrayList<Character> getPassageChars() {
         return passageChars;
+    }
+
+    public char getChar(int index) {
+        return passageChars.get(index);
     }
 
     /**

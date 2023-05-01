@@ -8,11 +8,19 @@ public class Game {
     private int highestWPM;
     private int highestAccuracy;
     private GameView window;
+    // getter for this - call in game view to print it
+    private Passage passage;
+    private int currCharIdx;
+
+    private int numErrors;
 
     public Game() {
         highestWPM = 0;
         highestAccuracy = 0;
         window = new GameView(this);
+        passage = new Passage(window);
+        currCharIdx = 0;
+        numErrors = 0;
     }
 
     public void DisplayInstructions() {}
@@ -22,10 +30,27 @@ public class Game {
     }
 
     public void playRound() {
-        Passage passage = new Passage(window);
-        window.setPassage(passage);
+        passage = new Passage(window);
+        currCharIdx = 0;
+        numErrors = 0;
         window.repaint();
-        //System.out.println(p.getPassageChars());
+    }
+
+    public Passage getPassage() {
+        return passage;
+    }
+
+    public void letterPressed(char charPressed) {
+        if (currCharIdx == 0) {
+            // start time
+        }
+        if (charPressed == passage.getChar(currCharIdx)) {
+            currCharIdx++;
+            window.repaint();
+        }
+        else {
+            numErrors++;
+        }
     }
 
     public void displayRoundResults(int time, int numChars, int numWords, int numErrors) {}

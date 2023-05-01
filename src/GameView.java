@@ -13,8 +13,10 @@ public class GameView extends JFrame implements KeyListener {
     private static final int WINDOW_WIDTH = 1000;
     private static final int WINDOW_HEIGHT = 600;
     private Game game;
-    boolean hasGameStarted;
     private Passage passage;
+    private static String state = "WELCOME_SCREEN";
+    private int charX = 38;
+    private int charY = 338;
 
     public GameView(Game game) {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -23,26 +25,29 @@ public class GameView extends JFrame implements KeyListener {
         setVisible(true);
         this.game = game;
         addKeyListener(this);
-        hasGameStarted = false;
-    }
-
-    public void setPassage (Passage newPassage) {
-        passage = newPassage;
     }
 
     public void paint(Graphics g) {
-        g.setFont(new Font("SERIF", Font.PLAIN, 45));
-        g.drawString("Welcome to Typing Race", 50, 130);
-        g.setFont(new Font("SERIF", Font.PLAIN, 15));
-        g.setColor(Color.black);
-        g.drawString("Instructions: A random passage will be displayed on the screen.", 50, 180);
-        g.drawString("You will have to type the passage as fast as you can with minimal errors.", 50, 200);
-        g.drawString("If you type a character incorrectly, you will be prompted to retype it.", 50, 220);
-        g.drawString("Press your space key to begin. The time will begin when you type the first letter.", 50, 260);
-        if (hasGameStarted) {
+        if (state.equals("WELCOME_SCREEN")) {
+            g.setFont(new Font("SERIF", Font.PLAIN, 45));
+            g.drawString("Welcome to Typing Race", 50, 130);
+            g.setFont(new Font("SERIF", Font.PLAIN, 15));
+            g.setColor(Color.black);
+            g.drawString("Instructions: A random passage will be displayed on the screen.", 50, 180);
+            g.drawString("You will have to type the passage as fast as you can with minimal errors.", 50, 200);
+            g.drawString("If you type a character incorrectly, you will be prompted to retype it.", 50, 220);
+            g.drawString("Press your space key to begin. The time will begin when you type the first letter.", 50, 260);
+        }
+        else if (state.equals("START_PLAYING")) {
             g.setColor(Color.white);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-            passage.draw(g, 38, 350);
+            game.getPassage().draw(g, 38, 350);
+            state = "PLAYING";
+        }
+        else if (state.equals("PLAYING")) {
+            g.setColor(Color.green);
+            g.drawRect(charX, charY, 7, 10);
+            charX += 5;
         }
     }
 
@@ -55,10 +60,16 @@ public class GameView extends JFrame implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        int keyCode = e.getKeyCode();
-        if (keyCode == KeyEvent.VK_SPACE) {
-            hasGameStarted = true;
+        if (state.equals("WELCOME_SCREEN")) {
+            int keyCode = e.getKeyCode();
+            if (keyCode == KeyEvent.VK_SPACE) {
+                state = "START_PLAYING";
+                repaint();
+            }
         }
-        repaint();
+        if (state.equals("PLAYING")) {
+            game.letterPressed(e.getKeyChar());
+        }
+        //repaint();
     }
 }
