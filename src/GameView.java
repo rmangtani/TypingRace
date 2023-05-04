@@ -42,19 +42,10 @@ public class GameView extends JFrame implements KeyListener {
             g.setColor(Color.white);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
             game.getPassage().draw(g, 38, 350, game.getCurrCharIdx());
-            //state = "PLAYING";
         }
-//        else if (state.equals("PLAYING")) {
-//            g.setColor(Color.green);
-//            g.drawRect(charX, charY, 7, 10);
-//            charX += 5;
-//        }
-//        else if (state.equals("PLAYING")) {
-//            g.setColor(Color.white);
-//            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-//            game.getPassage().draw(g, 38, 350);
-//            state = "PLAYING";
-//        }
+        if (state.equals("END_ROUND")) {
+            g.drawString(Long.toString(game.getTimeElapsed()) + " seconds!", 50, 180);
+        }
     }
 
     public void keyTyped(KeyEvent e) {
@@ -76,5 +67,9 @@ public class GameView extends JFrame implements KeyListener {
         if (state.equals("PLAYING")) {
             game.letterPressed(e.getKeyChar());
         }
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

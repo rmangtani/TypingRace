@@ -38,8 +38,8 @@ public class Passage {
         }
     }
 
-    public ArrayList<Character> getPassageChars() {
-        return passageChars;
+    public int getLength() {
+        return passageChars.size();
     }
 
     public char getChar(int index) {
