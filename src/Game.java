@@ -13,9 +13,7 @@ public class Game {
     private int currCharIdx;
 
     private int numErrors;
-    private long start;
-    private long finish;
-    private long timeElapsed;
+    private Clock clock;
 
     public Game() {
         highestWPM = 0;
@@ -24,6 +22,7 @@ public class Game {
         passage = new Passage(window);
         currCharIdx = 0;
         numErrors = 0;
+        clock = new Clock(this);
     }
 
     public void DisplayInstructions() {}
@@ -36,9 +35,6 @@ public class Game {
         passage = new Passage(window);
         currCharIdx = 0;
         numErrors = 0;
-        start = 0;
-        finish = 0;
-        timeElapsed = 0;
         window.repaint();
     }
 
@@ -48,14 +44,13 @@ public class Game {
 
     public void letterPressed(char charPressed) {
         if (currCharIdx == 0) {
-            start = System.nanoTime();
+            clock.startTime();
         }
         if (charPressed == passage.getChar(currCharIdx)) {
             currCharIdx++;
             window.repaint();
             if (currCharIdx >= passage.getLength()-1) {
-                finish = System.nanoTime();
-                timeElapsed = (finish-start)/1000000000;
+                clock.endTime();
                 window.setState("END_ROUND");
                 window.repaint();
             }
@@ -70,8 +65,8 @@ public class Game {
         return currCharIdx;
     }
 
-    public long getTimeElapsed() {
-        return timeElapsed;
+    public Clock getClock() {
+        return clock;
     }
 
     public void displayRoundResults(int time, int numChars, int numWords, int numErrors) {}

@@ -41,10 +41,13 @@ public class GameView extends JFrame implements KeyListener {
         else if (state.equals("PLAYING")) {
             g.setColor(Color.white);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+            g.setColor(Color.black);
+            g.setFont(new Font("SERIF", Font.PLAIN, 50));
+            g.drawString(Long.toString(game.getClock().getCurrentTime()), 50, 100);
             game.getPassage().draw(g, 38, 350, game.getCurrCharIdx());
         }
         if (state.equals("END_ROUND")) {
-            g.drawString(Long.toString(game.getTimeElapsed()) + " seconds!", 50, 180);
+            g.drawString(Long.toString(game.getClock().getTimeElapsed()) + " seconds!", 50, 180);
         }
     }
 
