@@ -53,6 +53,14 @@ public class Game {
         }
     }
 
+    public int getCurrCharIdx() {
+        return currCharIdx;
+    }
+
+    public void setCurrCharIdx(int currCharIdx) {
+        this.currCharIdx = currCharIdx;
+    }
+
     public void displayRoundResults(int time, int numChars, int numWords, int numErrors) {}
 
     public void endGame() {}

@@ -38,17 +38,23 @@ public class GameView extends JFrame implements KeyListener {
             g.drawString("If you type a character incorrectly, you will be prompted to retype it.", 50, 220);
             g.drawString("Press your space key to begin. The time will begin when you type the first letter.", 50, 260);
         }
-        else if (state.equals("START_PLAYING")) {
+        else if (state.equals("PLAYING")) {
             g.setColor(Color.white);
             g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-            game.getPassage().draw(g, 38, 350);
-            state = "PLAYING";
+            game.getPassage().draw(g, 38, 350, game.getCurrCharIdx());
+            //state = "PLAYING";
         }
-        else if (state.equals("PLAYING")) {
-            g.setColor(Color.green);
-            g.drawRect(charX, charY, 7, 10);
-            charX += 5;
-        }
+//        else if (state.equals("PLAYING")) {
+//            g.setColor(Color.green);
+//            g.drawRect(charX, charY, 7, 10);
+//            charX += 5;
+//        }
+//        else if (state.equals("PLAYING")) {
+//            g.setColor(Color.white);
+//            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+//            game.getPassage().draw(g, 38, 350);
+//            state = "PLAYING";
+//        }
     }
 
     public void keyTyped(KeyEvent e) {
@@ -63,13 +69,12 @@ public class GameView extends JFrame implements KeyListener {
         if (state.equals("WELCOME_SCREEN")) {
             int keyCode = e.getKeyCode();
             if (keyCode == KeyEvent.VK_SPACE) {
-                state = "START_PLAYING";
+                state = "PLAYING";
                 repaint();
             }
         }
         if (state.equals("PLAYING")) {
             game.letterPressed(e.getKeyChar());
         }
-        //repaint();
     }
 }

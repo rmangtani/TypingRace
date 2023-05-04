@@ -10,6 +10,7 @@ public class Passage {
     static final String[] passageFiles = {"Resources/passage1.txt", "Resources/passage2.txt"};
     private File passageFile;
     private ArrayList<Character> passageChars;
+    private String passageString;
     private GameView window;
 
     public Passage(GameView window) {
@@ -17,6 +18,7 @@ public class Passage {
         // set passage = to an array of characters of a random file from passageFiles
         // Reading in file code from MazeSolver (citation)
         passageChars = new ArrayList<Character>();
+        passageString = "";
         try {
             passageFile = new File(passageFiles[(int)(Math.random()*passageFiles.length)]);
             Scanner myReader = new Scanner(passageFile);
@@ -24,8 +26,10 @@ public class Passage {
                 String line = myReader.nextLine();
                 for (int i = 0; i < line.length(); i++) {
                     passageChars.add(line.charAt(i));
+                    passageString += (line.charAt(i));
                 }
                 passageChars.add(' ');
+                passageString+=" ";
             }
         }
         catch (FileNotFoundException e) {
@@ -51,19 +55,12 @@ public class Passage {
         return numWords;
     }
 
-    public void draw(Graphics g, int x, int y) {
-        g.setFont(new Font("SERIF", Font.PLAIN, 15));
+    public void draw(Graphics g, int x, int y, int currCharIdx) {
+        g.setFont(new Font("SERIF", Font.PLAIN, 50));
         g.setColor(Color.black);
-        try {
-            Scanner myReader = new Scanner(passageFile);
-            while (myReader.hasNextLine()) {
-                g.drawString(myReader.nextLine(), x, y);
-                y += 20;
-            }
-        }
-        catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-        }
+        if (currCharIdx+38 <= passageString.length())
+            g.drawString(passageString.substring(currCharIdx, currCharIdx+38), x, y);
+        else
+            g.drawString(passageString.substring(currCharIdx), x, y);
     }
 }
