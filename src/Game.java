@@ -1,3 +1,4 @@
+import java.lang.Integer;
 /**
  * Typing Race Game
  * @author: Ruchi Mangtani
@@ -8,12 +9,13 @@ public class Game {
     private int highestWPM;
     private int highestAccuracy;
     private GameView window;
-    // getter for this - call in game view to print it
     private Passage passage;
     private int currCharIdx;
-
     private int numErrors;
-    private Clock clock;
+    private long start;
+    private long finish;
+    private long timeElapsed;
+    private int wordsPerMinute;
 
     public Game() {
         highestWPM = 0;
@@ -22,10 +24,11 @@ public class Game {
         passage = new Passage(window);
         currCharIdx = 0;
         numErrors = 0;
-        clock = new Clock(this);
+        start = 0;
+        finish = 0;
+        timeElapsed = 0;
+        wordsPerMinute = 0;
     }
-
-    public void DisplayInstructions() {}
 
     public void playGame() {
         playRound();
@@ -35,25 +38,25 @@ public class Game {
         passage = new Passage(window);
         currCharIdx = 0;
         numErrors = 0;
+        start = 0;
+        finish = 0;
+        timeElapsed = 0;
+        wordsPerMinute = 0;
         window.repaint();
-    }
-
-    public Passage getPassage() {
-        return passage;
     }
 
     public void letterPressed(char charPressed) {
         if (currCharIdx == 0) {
-            clock.startTime();
+            start = System.nanoTime();
         }
         if (charPressed == passage.getChar(currCharIdx)) {
             currCharIdx++;
-            window.repaint();
             if (currCharIdx >= passage.getLength()-1) {
-                clock.endTime();
+                finish = System.nanoTime();
+                endRound();
                 window.setState("END_ROUND");
-                window.repaint();
             }
+            window.repaint();
         }
         else {
             numErrors++;
@@ -61,15 +64,26 @@ public class Game {
         }
     }
 
+    public void endRound() {
+        timeElapsed = (finish-start)/1000000000;
+        wordsPerMinute = passage.getNumWords()*60/Integer.parseInt(Long.toString(timeElapsed));
+    }
+
+    public Passage getPassage() {
+        return passage;
+    }
+
     public int getCurrCharIdx() {
         return currCharIdx;
     }
 
-    public Clock getClock() {
-        return clock;
+    public long getTimeElapsed() {
+        return timeElapsed;
     }
 
-    public void displayRoundResults(int time, int numChars, int numWords, int numErrors) {}
+    public int getWordsPerMinute() {
+        return wordsPerMinute;
+    }
 
     public void endGame() {}
 

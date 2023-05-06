@@ -28,26 +28,25 @@ public class GameView extends JFrame implements KeyListener {
     }
 
     public void paint(Graphics g) {
+        g.setColor(Color.white);
+        g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
+        g.setColor(Color.black);
         if (state.equals("WELCOME_SCREEN")) {
             g.setFont(new Font("SERIF", Font.PLAIN, 45));
             g.drawString("Welcome to Typing Race", 50, 130);
             g.setFont(new Font("SERIF", Font.PLAIN, 15));
-            g.setColor(Color.black);
-            g.drawString("Instructions: A random passage will be displayed on the screen.", 50, 180);
+            g.drawString("Instructions: A random passage will be displ ayed on the screen.", 50, 180);
             g.drawString("You will have to type the passage as fast as you can with minimal errors.", 50, 200);
             g.drawString("If you type a character incorrectly, you will be prompted to retype it.", 50, 220);
             g.drawString("Press your space key to begin. The time will begin when you type the first letter.", 50, 260);
         }
         else if (state.equals("PLAYING")) {
-            g.setColor(Color.white);
-            g.fillRect(0, 0, WINDOW_WIDTH, WINDOW_HEIGHT);
-            g.setColor(Color.black);
             g.setFont(new Font("SERIF", Font.PLAIN, 50));
-            g.drawString(Long.toString(game.getClock().getCurrentTime()), 50, 100);
             game.getPassage().draw(g, 38, 350, game.getCurrCharIdx());
         }
         if (state.equals("END_ROUND")) {
-            g.drawString(Long.toString(game.getClock().getTimeElapsed()) + " seconds!", 50, 180);
+            g.drawString("Time elapsed: " + Long.toString(game.getTimeElapsed()) + " seconds", 50, 180);
+            g.drawString("Words per minute: " + Integer.toString(game.getWordsPerMinute()), 50, 240);
         }
     }
 
