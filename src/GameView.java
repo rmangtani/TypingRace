@@ -35,7 +35,7 @@ public class GameView extends JFrame implements KeyListener {
             g.setFont(new Font("SERIF", Font.PLAIN, 45));
             g.drawString("Welcome to Typing Race", 50, 130);
             g.setFont(new Font("SERIF", Font.PLAIN, 15));
-            g.drawString("Instructions: A random passage will be displ ayed on the screen.", 50, 180);
+            g.drawString("Instructions: A random passage will be displayed on the screen.", 50, 180);
             g.drawString("You will have to type the passage as fast as you can with minimal errors.", 50, 200);
             g.drawString("If you type a character incorrectly, you will be prompted to retype it.", 50, 220);
             g.drawString("Press your space key to begin. The time will begin when you type the first letter.", 50, 260);
@@ -43,10 +43,14 @@ public class GameView extends JFrame implements KeyListener {
         else if (state.equals("PLAYING")) {
             g.setFont(new Font("SERIF", Font.PLAIN, 50));
             game.getPassage().draw(g, 38, 350, game.getCurrCharIdx());
+            g.setFont(new Font("SERIF", Font.PLAIN, 100));
+            g.drawLine(40, 360, 70, 360);
         }
         if (state.equals("END_ROUND")) {
             g.drawString("Time elapsed: " + Long.toString(game.getTimeElapsed()) + " seconds", 50, 180);
             g.drawString("Words per minute: " + Integer.toString(game.getWordsPerMinute()), 50, 240);
+            g.drawString("Accuracy: " + Integer.toString(game.getAccuracy()) + "%", 50, 300);
+            g.drawString("Press your space key to play again.", 50, 360);
         }
     }
 

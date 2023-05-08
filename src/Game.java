@@ -16,6 +16,8 @@ public class Game {
     private long finish;
     private long timeElapsed;
     private int wordsPerMinute;
+    private int accuracy;
+    private int keysPressed;
 
     public Game() {
         highestWPM = 0;
@@ -23,11 +25,12 @@ public class Game {
         window = new GameView(this);
         passage = new Passage(window);
         currCharIdx = 0;
-        numErrors = 0;
         start = 0;
         finish = 0;
         timeElapsed = 0;
         wordsPerMinute = 0;
+        numErrors = 0;
+        keysPressed = 0;
     }
 
     public void playGame() {
@@ -37,15 +40,18 @@ public class Game {
     public void playRound() {
         passage = new Passage(window);
         currCharIdx = 0;
-        numErrors = 0;
         start = 0;
         finish = 0;
         timeElapsed = 0;
         wordsPerMinute = 0;
+        accuracy = 0;
+        numErrors = 0;
+        keysPressed = 0;
         window.repaint();
     }
 
     public void letterPressed(char charPressed) {
+        keysPressed++;
         if (currCharIdx == 0) {
             start = System.nanoTime();
         }
@@ -66,7 +72,8 @@ public class Game {
 
     public void endRound() {
         timeElapsed = (finish-start)/1000000000;
-        wordsPerMinute = passage.getNumWords()*60/Integer.parseInt(Long.toString(timeElapsed));
+        wordsPerMinute = (int)(passage.getNumWords()*60/timeElapsed);
+        accuracy = (keysPressed-numErrors)*100/keysPressed;
     }
 
     public Passage getPassage() {
@@ -85,6 +92,9 @@ public class Game {
         return wordsPerMinute;
     }
 
+    public int getAccuracy() {
+        return accuracy;
+    }
     public void endGame() {}
 
     public static void main(String[] args) {
