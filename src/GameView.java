@@ -50,7 +50,12 @@ public class GameView extends JFrame implements KeyListener {
             g.drawString("Time elapsed: " + Long.toString(game.getTimeElapsed()) + " seconds", 50, 180);
             g.drawString("Words per minute: " + Integer.toString(game.getWordsPerMinute()), 50, 240);
             g.drawString("Accuracy: " + Integer.toString(game.getAccuracy()) + "%", 50, 300);
-            g.drawString("Press your space key to play again.", 50, 360);
+            g.drawString("Press your space key to play again. Press q to quit.", 50, 360);
+        }
+        if (state.equals("END_GAME")) {
+            g.drawString("Thank you for playing! Here are your final results:", 50, 180);
+            g.drawString("Highest WPM: " + Integer.toString(game.getHighestWPM()), 50, 240);
+            g.drawString("Highest accuracy: " + Integer.toString(game.getHighestAccuracy()) + "%", 50, 300);
         }
     }
 
@@ -63,10 +68,15 @@ public class GameView extends JFrame implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {
-        if (state.equals("WELCOME_SCREEN")) {
+        if (state.equals("WELCOME_SCREEN") || state.equals("END_ROUND")) {
             int keyCode = e.getKeyCode();
             if (keyCode == KeyEvent.VK_SPACE) {
                 state = "PLAYING";
+                game.playRound();
+                repaint();
+            }
+            if (keyCode == KeyEvent.VK_Q) {
+                state = "END_GAME";
                 repaint();
             }
         }

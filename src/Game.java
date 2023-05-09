@@ -20,8 +20,8 @@ public class Game {
     private int keysPressed;
 
     public Game() {
-        highestWPM = 0;
-        highestAccuracy = 0;
+        highestWPM = Integer.MIN_VALUE;
+        highestAccuracy = Integer.MIN_VALUE;
         window = new GameView(this);
         passage = new Passage(window);
         currCharIdx = 0;
@@ -73,7 +73,13 @@ public class Game {
     public void endRound() {
         timeElapsed = (finish-start)/1000000000;
         wordsPerMinute = (int)(passage.getNumWords()*60/timeElapsed);
+        if (wordsPerMinute > highestWPM) {
+            highestWPM = wordsPerMinute;
+        }
         accuracy = (keysPressed-numErrors)*100/keysPressed;
+        if (accuracy > highestAccuracy) {
+            highestAccuracy = accuracy;
+        }
     }
 
     public Passage getPassage() {
@@ -95,7 +101,14 @@ public class Game {
     public int getAccuracy() {
         return accuracy;
     }
-    public void endGame() {}
+
+    public int getHighestWPM() {
+        return highestWPM;
+    }
+
+    public int getHighestAccuracy() {
+        return highestAccuracy;
+    }
 
     public static void main(String[] args) {
         Game g = new Game();
