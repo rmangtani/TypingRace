@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021a22b6-5df8-483e-8cea-56a0d02fde7d" name="Changes" comment="game prototype done (can replay + see final results)" />
+    <list default="true" id="021a22b6-5df8-483e-8cea-56a0d02fde7d" name="Changes" comment="everything done; just ugly">
+      <change afterPath="$PROJECT_DIR$/Resources/download.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/images.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/passage3.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/passage4.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Passage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Passage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,6 +45,11 @@
     &quot;last_opened_file_path&quot;: &quot;/Users/ruchimangtani/Desktop/CS2/TypingRace&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Resources" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -122,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683607391631</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="everything done; just ugly">
+      <created>1683741133547</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1683741133547</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -137,6 +158,27 @@
     <MESSAGE value="Time elapsed + WPM completed" />
     <MESSAGE value="Time elapsed + WPM + accuracy completed" />
     <MESSAGE value="game prototype done (can replay + see final results)" />
-    <option name="LAST_COMMIT_MESSAGE" value="game prototype done (can replay + see final results)" />
+    <MESSAGE value="everything done; just ugly" />
+    <option name="LAST_COMMIT_MESSAGE" value="everything done; just ugly" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/GameView.java</url>
+          <line>22</line>
+          <properties class="GameView" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Game.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

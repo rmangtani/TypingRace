@@ -5,7 +5,7 @@ import java.awt.*;
 
 public class Passage {
     // Passages taken from https://thepracticetest.com/typing/tests/practice-paragraphs/
-    static final String[] passageFiles = {"Resources/passage1.txt", "Resources/passage2.txt"};
+    static final String[] passageFiles = {"Resources/passage1.txt", "Resources/passage2.txt", "Resources/passage3.txt", "Resources/passage4.txt"};
     private File passageFile;
     private String passage;
     private GameView window;
@@ -56,8 +56,8 @@ public class Passage {
     }
 
     public void draw(Graphics g, int x, int y, int currCharIdx) {
-        g.setFont(new Font("SERIF", Font.PLAIN, 50));
-        g.setColor(Color.black);
+        g.setFont(new Font("Dialog", Font.PLAIN, 50));
+        g.setColor(Color.green);
         if (currCharIdx+38 <= passage.length())
             g.drawString(passage.substring(currCharIdx, currCharIdx+38), x, y);
         else

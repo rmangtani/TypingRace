@@ -6,6 +6,7 @@ import java.lang.Integer;
  */
 
 public class Game {
+    private static final int SECONDS_IN_NANOSECONDS = 1000000000;
     private int highestWPM;
     private int highestAccuracy;
     private GameView window;
@@ -71,7 +72,7 @@ public class Game {
     }
 
     public void endRound() {
-        timeElapsed = (finish-start)/1000000000;
+        timeElapsed = (finish-start)/SECONDS_IN_NANOSECONDS;
         wordsPerMinute = (int)(passage.getNumWords()*60/timeElapsed);
         if (wordsPerMinute > highestWPM) {
             highestWPM = wordsPerMinute;
