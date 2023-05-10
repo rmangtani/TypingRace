@@ -37,7 +37,7 @@ public class GameView extends JFrame implements KeyListener {
             g.setFont(new Font("SERIF", Font.PLAIN, 15));
             g.drawString("Instructions: A random passage will be displayed on the screen.", 50, 180);
             g.drawString("You will have to type the passage as fast as you can with minimal errors.", 50, 200);
-            g.drawString("If you type a character incorrectly, you will be prompted to retype it.", 50, 220);
+            g.drawString("If you type a character incorrectly, you will have to retype it to continue.", 50, 220);
             g.drawString("Press your space key to begin. The time will begin when you type the first letter.", 50, 260);
         }
         else if (state.equals("PLAYING")) {

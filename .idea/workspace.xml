@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021a22b6-5df8-483e-8cea-56a0d02fde7d" name="Changes" comment="Time elapsed + WPM + accuracy completed">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameView.java" afterDir="false" />
-    </list>
+    <list default="true" id="021a22b6-5df8-483e-8cea-56a0d02fde7d" name="Changes" comment="game prototype done (can replay + see final results)" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683577305419</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="game prototype done (can replay + see final results)">
+      <created>1683607391631</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1683607391631</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -133,6 +136,7 @@
     <MESSAGE value="Seconds stopwatch works" />
     <MESSAGE value="Time elapsed + WPM completed" />
     <MESSAGE value="Time elapsed + WPM + accuracy completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Time elapsed + WPM + accuracy completed" />
+    <MESSAGE value="game prototype done (can replay + see final results)" />
+    <option name="LAST_COMMIT_MESSAGE" value="game prototype done (can replay + see final results)" />
   </component>
 </project>
