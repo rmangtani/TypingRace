@@ -1,12 +1,12 @@
 import java.lang.Integer;
+
 /**
- * Typing Race Game
+ * Typing Race
  * @author: Ruchi Mangtani
- * @version: 04/24/23
+ * @version: 5/12/23
  */
 
 public class Game {
-    private static final int SECONDS_IN_NANOSECONDS = 1000000000;
     private int highestWPM;
     private int highestAccuracy;
     private GameView window;
@@ -19,46 +19,55 @@ public class Game {
     private int wordsPerMinute;
     private int accuracy;
     private int keysPressed;
+    private static final int SECONDS_IN_NANOSECONDS = 1000000000;
+    public static final int SECONDS_IN_MINUTE = 60;
+    public static final int PERCENT_MULTIPLIER = 100;
 
     public Game() {
         highestWPM = Integer.MIN_VALUE;
         highestAccuracy = Integer.MIN_VALUE;
         window = new GameView(this);
-        passage = new Passage(window);
+        passage = null;
         currCharIdx = 0;
-        start = 0;
-        finish = 0;
-        timeElapsed = 0;
-        wordsPerMinute = 0;
         numErrors = 0;
-        keysPressed = 0;
-    }
-
-    public void playGame() {
-        playRound();
-    }
-
-    public void playRound() {
-        passage = new Passage(window);
-        currCharIdx = 0;
         start = 0;
         finish = 0;
         timeElapsed = 0;
         wordsPerMinute = 0;
         accuracy = 0;
-        numErrors = 0;
         keysPressed = 0;
-        window.repaint();
     }
 
+    /**
+     * Resets variables for the new round. Passage is set to a random passage from the text files.
+     */
+    public void playRound() {
+        passage = new Passage(window);
+        currCharIdx = 0;
+        numErrors = 0;
+        start = 0;
+        finish = 0;
+        timeElapsed = 0;
+        wordsPerMinute = 0;
+        accuracy = 0;
+        keysPressed = 0;
+    }
+
+    /**
+     * Checks if the user typed the character corresponding to the character they are currently at (currCharIdx).
+     * The user cannot move on until they have typed the correct character.
+     * @param charPressed the character pressed by the user
+     */
     public void letterPressed(char charPressed) {
         keysPressed++;
+        // Starting time at first character
         if (currCharIdx == 0) {
             start = System.nanoTime();
         }
+        // Checking if the user pressed the correct character. Stops time if it's the last character.
         if (charPressed == passage.getChar(currCharIdx)) {
             currCharIdx++;
-            if (currCharIdx >= passage.getLength()-1) {
+            if (currCharIdx == passage.getLength()) {
                 finish = System.nanoTime();
                 endRound();
                 window.setState("END_ROUND");
@@ -66,18 +75,23 @@ public class Game {
             window.repaint();
         }
         else {
+            //window.setState("INCORRECT_CHARACTER");
             numErrors++;
-            // keep track of which letters specifically were typed incorrectly?
         }
     }
 
+    /**
+     * Calculates the time it took for the user to type the passage, their words per minute, and their accuracy.
+     * Updates highestWPM and highestAccuracy if the user's WPM or accuracy was greater than their previously
+     * highest one.
+     */
     public void endRound() {
         timeElapsed = (finish-start)/SECONDS_IN_NANOSECONDS;
-        wordsPerMinute = (int)(passage.getNumWords()*60/timeElapsed);
+        wordsPerMinute = (int)(passage.getNumWords()*SECONDS_IN_MINUTE/timeElapsed);
         if (wordsPerMinute > highestWPM) {
             highestWPM = wordsPerMinute;
         }
-        accuracy = (keysPressed-numErrors)*100/keysPressed;
+        accuracy = (keysPressed-numErrors)*PERCENT_MULTIPLIER/keysPressed;
         if (accuracy > highestAccuracy) {
             highestAccuracy = accuracy;
         }
@@ -113,6 +127,6 @@ public class Game {
 
     public static void main(String[] args) {
         Game g = new Game();
-        g.playGame();
+        g.playRound();
     }
 }
