@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021a22b6-5df8-483e-8cea-56a0d02fde7d" name="Changes" comment="Comments added &amp; magic numbers removed">
+    <list default="true" id="021a22b6-5df8-483e-8cea-56a0d02fde7d" name="Changes" comment="Complete">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Passage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Passage.java" afterDir="false" />
     </list>
@@ -153,7 +152,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683954966642</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Complete">
+      <created>1683956406908</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1683956406908</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -171,6 +177,7 @@
     <MESSAGE value="everything done; just ugly" />
     <MESSAGE value="Some changes to UI + image added  to welcome screen" />
     <MESSAGE value="Comments added &amp; magic numbers removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Comments added &amp; magic numbers removed" />
+    <MESSAGE value="Complete" />
+    <option name="LAST_COMMIT_MESSAGE" value="Complete" />
   </component>
 </project>

@@ -84,10 +84,12 @@ public class Passage {
     public void draw(Graphics g, int x, int y, int currCharIdx) {
         g.setFont(new Font("Dialog", Font.PLAIN, PASSAGE_SIZE));
         g.setColor(Color.green);
-        if (currCharIdx+DISPLAY_LINE_LENGTH <= passage.length())
-            g.drawString(passage.substring(currCharIdx, currCharIdx+DISPLAY_LINE_LENGTH), x, y);
+        if (currCharIdx+DISPLAY_LINE_LENGTH <= passage.length()) {
+            g.drawString(passage.substring(currCharIdx, currCharIdx + DISPLAY_LINE_LENGTH), x, y);
+        }
         // If there are not enough characters to display a line of length DISPLAY_LINE_LENGTH, just draw whatever is left
-        else
+        else {
             g.drawString(passage.substring(currCharIdx), x, y);
+        }
     }
 }

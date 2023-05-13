@@ -129,6 +129,9 @@ public class GameView extends JFrame implements KeyListener {
                 state = "PLAYING";
                 game.playRound();
             }
+            repaint();
+        }
+        if (state.equals("END_ROUND")) {
             if (charPressed == 'q') {
                 state = "END_GAME";
             }
