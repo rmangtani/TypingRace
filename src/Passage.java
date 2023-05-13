@@ -18,14 +18,20 @@ public class Passage {
     public static final int DISPLAY_LINE_LENGTH = 38;
 
     /**
-     * Constructor that initializes instance variables and sets passage equal to a String of characters from a
-     * random file in passageFiles
+     * Constructor that initializes instance variables and generates a random passage
      * @param window
      */
     public Passage(GameView window) {
         this.window = window;
         passage = "";
-        // Source: The reading in file code was taken from MazeSolver
+        generatePassage();
+    }
+
+    /**
+     * Selects a random file from passageFiles and reads every character into the string variable passage
+     * Source: MazeSolver createMaze method in the Maze class
+     */
+    public void generatePassage() {
         try {
             File passageFile = new File(passageFiles[(int)(Math.random()*passageFiles.length)]);
             Scanner myReader = new Scanner(passageFile);
@@ -35,7 +41,7 @@ public class Passage {
                     passage += (line.charAt(i));
                 }
                 if (myReader.hasNextLine()) {
-                    passage+=" ";
+                    passage += " ";
                 }
             }
         }

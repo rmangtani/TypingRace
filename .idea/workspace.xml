@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="021a22b6-5df8-483e-8cea-56a0d02fde7d" name="Changes" comment="Some changes to UI + image added  to welcome screen">
+    <list default="true" id="021a22b6-5df8-483e-8cea-56a0d02fde7d" name="Changes" comment="Comments added &amp; magic numbers removed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/download.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/welcomeImage.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/images.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GameView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Passage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Passage.java" afterDir="false" />
@@ -148,7 +146,14 @@
       <option name="project" value="LOCAL" />
       <updated>1683745253941</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Comments added &amp; magic numbers removed">
+      <created>1683954966642</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1683954966642</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -165,6 +170,7 @@
     <MESSAGE value="game prototype done (can replay + see final results)" />
     <MESSAGE value="everything done; just ugly" />
     <MESSAGE value="Some changes to UI + image added  to welcome screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some changes to UI + image added  to welcome screen" />
+    <MESSAGE value="Comments added &amp; magic numbers removed" />
+    <option name="LAST_COMMIT_MESSAGE" value="Comments added &amp; magic numbers removed" />
   </component>
 </project>

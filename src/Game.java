@@ -75,15 +75,13 @@ public class Game {
             window.repaint();
         }
         else {
-            //window.setState("INCORRECT_CHARACTER");
             numErrors++;
         }
     }
 
     /**
      * Calculates the time it took for the user to type the passage, their words per minute, and their accuracy.
-     * Updates highestWPM and highestAccuracy if the user's WPM or accuracy was greater than their previously
-     * highest one.
+     * Updates highestWPM and highestAccuracy.
      */
     public void endRound() {
         timeElapsed = (finish-start)/SECONDS_IN_NANOSECONDS;
